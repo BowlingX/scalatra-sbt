@@ -4,9 +4,13 @@ name := "scalatra-sbt"
 
 sbtPlugin := true
 
+ScriptedPlugin.scriptedSettings
+
+scriptedBufferLog := false
+
 publishMavenStyle := false
 
-version := "0.2.0"
+version := "0.3.0-SNAPSHOT"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
@@ -21,6 +25,8 @@ publishTo <<= (version) { version: String =>
    Some(Resolver.url(name, new URL(url))(Resolver.ivyStylePatterns))
 }
 
+
 libraryDependencies ++= Seq(
-  "com.github.siasia" %% "xsbt-web-plugin" % "0.12.0-0.2.11.1"
+  "com.github.siasia" %% "xsbt-web-plugin" % "0.12.0-0.2.11.1",
+  "com.samskivert" % "jmustache" % "1.6"
 )
